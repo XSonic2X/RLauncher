@@ -69,7 +69,7 @@ namespace TCPServer
                 {
                     if (loading) { ABSSend(SystemSC.bytes, 10); }
                     else { ABSSend(SystemSC.bytes, 5); break; }
-                    if ((Max - file.Position) > 1048576)
+                    if ((Max - file.Position) > 102400000)
                     {
                         bytes = ABSReceive();
                         file.Write(bytes, 0, bytes.Length);

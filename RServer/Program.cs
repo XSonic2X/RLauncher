@@ -11,10 +11,10 @@ namespace RServer
     internal class Program
     {
         static List<ProgramsFile> programsFiles = new List<ProgramsFile>();
-        static string SQLCon = "Data Source=DESKTOP;Initial Catalog=RShopProgram;Integrated Security=True";
+        static string SQLCon = "Data Source=HOME-PC;Initial Catalog=RShopProgram;Integrated Security=True";
         static void Main(string[] args)
         {
-            Server server = new Server("127.0.0.1", 104, 5, "test1", "test2"); //Максимум 5 челиксов
+            Server server = new Server("192.168.0.105", 104, 5, "test1", "test2"); //Максимум 5 челиксов
             server.getUser += AcceptanceByUsers;
             server.add += Add;
             server.remova += Rem;

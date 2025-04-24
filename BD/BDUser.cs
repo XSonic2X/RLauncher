@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace BD
 {
-    public class BDUser: IDisposable
+    public class BDUser
     {
         public BDUser() 
         { 
@@ -43,10 +43,6 @@ namespace BD
         { 
             this.Key = Key;
             Password = "";
-        }
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }

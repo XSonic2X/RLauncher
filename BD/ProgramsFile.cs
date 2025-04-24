@@ -18,15 +18,15 @@ namespace BD
         public string path;
         public string Description = "Реализация добавление описание на стороне сервера еще не придумано";
         public decimal Price = 0;
-        public override string ToString() 
-        {
-            return name;
-        }
 
         public void Initialize(SqlDataReader reader)
         {
             name = (string)reader["Name"];
             Price = (decimal)reader["Price"];
+        }
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

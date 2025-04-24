@@ -40,12 +40,12 @@ namespace TCPServer
             {
                 file.Position = a;//На каком байте остановились
                 ABSSend(BitConverter.GetBytes(file.Length), 5);//Отправляем кол-во байтов от файла
-                byte[] bytes = new byte[1048576];//Размер буфера
+                byte[] bytes = new byte[102400000];//Размер буфера
                 while (true)
                 {
                     ABSReceive();
                     if (code == 5) { break; }
-                    if ((file.Length - file.Position) > 1048576)
+                    if ((file.Length - file.Position) > 102400000)
                     {
                         file.Read(bytes, 0, bytes.Length);
                         ABSSend(bytes, 1);

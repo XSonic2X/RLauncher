@@ -102,22 +102,22 @@ namespace RLauncher.DF
 
         private void RegBt_Click(object sender, EventArgs e)
         {
-            if(NameTb.Text == "" | NameTb.Text == "Ваше имя")
+            if(NameTb.Text == "" || NameTb.Text == "Ваше имя")
             {
                 SystemCustom.ShowMessage("Пожалуйста, укажите своё имя",  MessageBoxButtons.OK);
                 return;
             }
-            if (LoginTb.Text == "" | LoginTb.Text == "Придумайте логин")
+            if (LoginTb.Text == "" || LoginTb.Text == "Придумайте логин")
             {
                 SystemCustom.ShowMessage("Пожалуйста, придумайте логин!", MessageBoxButtons.OK);
                 return;
             }
-            if (PasswordTb.Text == "Придумайте пароль" & RepeatPassTb.Text == "Повторите пароль")
+            if (PasswordTb.Text == "" || PasswordTb.Text == "Придумайте пароль" && RepeatPassTb.Text == "Повторите пароль")
             {
                 SystemCustom.ShowMessage("Пожалуйста, придумайте пароль!", MessageBoxButtons.OK);
                 return;
             }    
-            if(PasswordTb.Text != RepeatPassTb.Text | RepeatPassTb.Text == "Повторите пароль")
+            if(PasswordTb.Text != RepeatPassTb.Text || RepeatPassTb.Text == "Повторите пароль")
             {
                 SystemCustom.ShowMessage("Пароли не совпадают!", MessageBoxButtons.OK);
                 return;

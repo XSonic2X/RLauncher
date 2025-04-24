@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace BD
@@ -17,7 +18,7 @@ namespace BD
             }
             return txt;
         }
-        public static byte[] WriteXml<T>(T save)
+        public static byte[] WriteXml<T>(T save)// Запись xml в байты 
         {
             byte[] bytes;
             using (MemoryStream MS = new MemoryStream())
@@ -27,7 +28,15 @@ namespace BD
             }
             return bytes;
         }
-        public static T ReadXml<T>(byte[] bytes)=> (T)new XmlSerializer(typeof(T)).Deserialize(new MemoryStream(bytes));
+        public static T ReadXml<T>(byte[] bytes)
+        {
+            T t;
+            using (MemoryStream mem_stream = new MemoryStream(File.ReadAllBytes(Name)))
+            {
+                t = (T)new XmlSerializer(typeof(T)).Deserialize(mem_stream);
+            }
+            return t;
+        }
 
     }
 }

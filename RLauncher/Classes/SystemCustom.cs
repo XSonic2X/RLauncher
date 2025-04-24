@@ -8,17 +8,17 @@ namespace RLauncher
 {
     public static class SystemCustom
     {
-        static Point Mouse = Control.MousePosition;
-        static Point mouseForm;
-        static int X = 0, Y = 0;
         public static Bitmap bitmap { get; private set; } = new Bitmap(Properties.Resources.p3069437);
 
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn( int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+        private static Point Mouse = Control.MousePosition;
+        private static Point mouseForm;
+
+        private static int X = 0, Y = 0;
+
         public static void FormRound(Form form, int nLeftRect, int nTopRect, int nWidthEllipse, int nHeightEllipse)
         {
             form.FormBorderStyle = FormBorderStyle.None;
-            form.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(nLeftRect, nTopRect, form.Width, form.Height, nWidthEllipse, nHeightEllipse));
+            form.Region = Region.FromHrgn(CreateRoundRectRgn(nLeftRect, nTopRect, form.Width, form.Height, nWidthEllipse, nHeightEllipse));
         }
         public static void UpdateMouse(Form form)
         {
@@ -54,5 +54,9 @@ namespace RLauncher
             }
             return dlgResult;
         }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
     }
 }

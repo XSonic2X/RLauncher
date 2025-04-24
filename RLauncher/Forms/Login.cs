@@ -42,7 +42,7 @@ namespace RLauncher
         BDUser dUser;
         Cap cap;
         Client client;
-        SocketClient socketClient = new SocketClient("127.0.0.1", 104, "test1", "test2");
+        SocketClient socketClient = new SocketClient("77.37.144.13", 104, "test1", "test2");
         private void button1_Click(object sender, EventArgs e)
         {
             byte[] bytes;

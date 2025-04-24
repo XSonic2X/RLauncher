@@ -7,7 +7,7 @@ using TCPServer;
 
 namespace RServer
 {
-    public class ProcessingUser: IDisposable
+    public class ProcessingUser
     {
         public ProcessingUser(SQL sQL, User user)
         {
@@ -152,10 +152,6 @@ namespace RServer
                         return;
                 }
             }    
-        }
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }
